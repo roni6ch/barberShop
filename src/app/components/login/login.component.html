@@ -1,0 +1,10 @@
+<google-signin
+[clientId]="myClientId"
+width="240"
+theme="dark"
+scope="email profile"
+longTitle="true"
+(googleSignInSuccess)="onGoogleSignInSuccess($event)"
+(googleSignInFailure)="onFailure($event)"
+>
+</google-signin>
