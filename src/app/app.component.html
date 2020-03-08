@@ -1,6 +1,8 @@
 <div class="wrapper">
-  <router-outlet></router-outlet>
-  <ul class="spinner" *ngIf="spinner">
+  <div class="col-12">
+    <router-outlet></router-outlet>
+ </div>
+  <ul class="spinner" [hidden]="!(spinner$ | async)">
     <li></li>
     <li></li>
     <li></li>
@@ -8,3 +10,5 @@
     <li></li>
   </ul>
 </div>
+
+<p>spinner: {{spinner$ | async}}</p>

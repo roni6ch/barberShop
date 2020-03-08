@@ -1,6 +1,9 @@
 {
   "extends": "tslint:recommended",
   "rules": {
+  	"tslint.autoFixOnSave": true,
+
+
     "array-type": false,
     "arrow-parens": false,
     "deprecation": {

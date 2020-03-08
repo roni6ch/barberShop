@@ -10,8 +10,8 @@ export class HomepageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log("HomepageComponent");
-    
+    console.log('HomepageComponent');
+
   }
 
 }

@@ -1,33 +1,42 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
+import { Component, OnInit, ChangeDetectorRef, NgZone } from "@angular/core";
+import { AuthService } from "../../services/auth.service";
 import {
   GoogleSignInSuccess,
   GoogleSignInFailure
 } from "angular-google-signin";
-import { Router } from '@angular/router';
+import { Router } from "@angular/router";
+import { Observable } from "rxjs";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: "app-login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.scss"]
 })
 export class LoginComponent implements OnInit {
-  myClientId: string =
+  myClientId =
     "165534313499-qc1cfp3uckkb5p7qimrf3fcfr1pos9pj.apps.googleusercontent.com";
-
-  constructor(private _auth: AuthService, private _router: Router) { }
-
-  ngOnInit() { console.log("LoginComponent");}
-  
-  onGoogleSignInSuccess(e: GoogleSignInSuccess) {
-    let id = e.googleUser.getAuthResponse().id_token;
-    let name = e.googleUser.getBasicProfile().getName();
-    localStorage.setItem('token',id);
+  spinner$: Observable<boolean>;
+  constructor(
+    private _auth: AuthService,
+    private _router: Router,
+    private ngZone: NgZone
+  ) {}
+  async ngOnInit() {
+    this.spinner$ = this._auth.getSpinner();
+    await this._auth.delay(500);
+    if (localStorage.getItem("token") === null) {
+      this._auth.spinner$.next(false);
+    }
+  }
+  async onGoogleSignInSuccess(e: GoogleSignInSuccess) {
+    const id = e.googleUser.getAuthResponse().id_token;
+    const name = e.googleUser.getBasicProfile().getName();
+    localStorage.setItem("token", id);
+    await this._auth.login();
+    this.ngZone.run(() => this._router.navigate(["/app-homepage"]));
     console.log("connected");
-    this._router.navigate(["/app-homepage"]);
   }
   onFailure(event: GoogleSignInFailure) {
     console.log(event);
   }
-
 }

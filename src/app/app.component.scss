@@ -12,8 +12,9 @@ $size: 2em; /*change this to resize*/
   grid-template-rows: 1fr;
   grid-gap: 5px;
   background: url('./../assets/images/barber.jpg') no-repeat center center fixed;
-
   background-size: cover;
+  justify-content: center;
+    align-items: center;
   .spinner {
     position: absolute;
     left: 0;
