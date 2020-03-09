@@ -1,5 +1,6 @@
 <div class="wrapper">
-  <div class="col-12">
+  <app-nav></app-nav>
+  <div class="col-12 routerWrapper">
     <router-outlet></router-outlet>
  </div>
   <ul class="spinner" [hidden]="!(spinner$ | async)">
@@ -10,5 +11,3 @@
     <li></li>
   </ul>
 </div>
-
-<p>spinner: {{spinner$ | async}}</p>

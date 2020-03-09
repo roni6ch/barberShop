@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef, NgZone } from "@angular/core";
+import { Component, OnInit, ChangeDetectorRef, NgZone, OnDestroy } from "@angular/core";
 import { AuthService } from "../../services/auth.service";
 import {
   GoogleSignInSuccess,
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   ) {}
   async ngOnInit() {
     this.spinner$ = this._auth.getSpinner();
-    await this._auth.delay(500);
+    await this._auth.delay(100);
     if (localStorage.getItem("token") === null) {
       this._auth.spinner$.next(false);
     }
