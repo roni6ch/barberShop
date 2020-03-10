@@ -23,6 +23,10 @@ import { NgxGalleryModule } from 'ngx-gallery';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { ContactComponent } from './components/contact/contact.component';
 
+import { LightboxModule } from 'ngx-lightbox';
+import { FooterComponent } from './components/footer/footer.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @NgModule({
@@ -34,15 +38,19 @@ import { ContactComponent } from './components/contact/contact.component';
     NavComponent,
     GalleryComponent,
     CalendarComponent,
-    ContactComponent
+    ContactComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    LightboxModule,
     HttpClientModule,
     MatCardModule,
     MatButtonModule,
     FormsModule,
+    MatInputModule,
+    MatFormFieldModule,
     BrowserAnimationsModule,
     NgxGalleryModule,
     NavbarModule, WavesModule, ButtonsModule,IconsModule, MatTooltipModule , MatSnackBarModule , TooltipModule

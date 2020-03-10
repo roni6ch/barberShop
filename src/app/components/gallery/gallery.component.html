@@ -1,5 +1,6 @@
-<div class="galleryWrapper  slide-in-blurred-top" id="gallery">
-  <div class="row">
-    <mdb-image-modal [modalImages]="images" type="margin"></mdb-image-modal>
+<div class="galleryWrapper  slide-in-blurred-top hover01" id="gallery">
+  <div *ngFor="let image of _album; let i = index">
+    <figure><img [src]="image.thumb" (click)="open(i)" /></figure>
   </div>
 </div>
+<!-- https://www.npmjs.com/package/ngx-lightbox -->

@@ -18,6 +18,7 @@ $size: 2em; /*change this to resize*/
     right: 0;
     bottom: 0;
     top: 0;
+    overflow:hidden;
     li {
       position: absolute;
       left: 0;
@@ -120,6 +121,10 @@ $size: 2em; /*change this to resize*/
     }
   }
 }
+
+
+
+
 google-signin {
   align-self: center;
   justify-self: center;
@@ -182,4 +187,3 @@ google-signin {
     opacity: 1;
   }
 }
-

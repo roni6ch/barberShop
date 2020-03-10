@@ -3,6 +3,8 @@
     <div class="col-12 routerWrapper">
       <router-outlet></router-outlet>
     </div>
+    
+  <app-footer></app-footer>
   <ul class="spinner" [hidden]="!(spinner$ | async)">
     <li></li>
     <li></li>
@@ -10,4 +12,7 @@
     <li></li>
     <li></li>
   </ul>
+
+  
+
 </div>
