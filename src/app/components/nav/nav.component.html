@@ -1,23 +1,27 @@
 <nav class="navWrapper">
 <!--Navbar-->
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark unique-color" [containerInside]="false" [hidden]="!(loggedIn$ | async)">
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark" [containerInside]="false" [hidden]="!(loggedIn$ | async)">
 
   <!-- Navbar brand -->
-  <mdb-navbar-brand><a class="navbar-brand" href="#">Navbar</a></mdb-navbar-brand>
+  <mdb-navbar-brand><a class="navbar-brand" href="#">Barber</a></mdb-navbar-brand>
   <!-- Collapsible content -->
   <links>
 
     <!-- Links -->
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect routerLink="/app-homepage" routerLinkActive="active-link">Home</a>
+        <a class="nav-link waves-light" mdbWavesEffect (click)="scroll('homepage')" routerLink="/app-homepage" routerLinkActive="active-link">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect routerLink="/app-gallery" routerLinkActive="active-link">Gallery</a>
+        <a class="nav-link waves-light" mdbWavesEffect (click)="scroll('gallery')" routerLink="/app-gallery" routerLinkActive="active-link">Gallery</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link waves-light" mdbWavesEffect routerLink="/app-calendar" routerLinkActive="active-link">Calendar</a>
+        <a class="nav-link waves-light" mdbWavesEffect (click)="scroll('calendar')" routerLink="/app-calendar" routerLinkActive="active-link">Calendar</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link waves-light" mdbWavesEffect (click)="scroll('contact')" routerLink="/app-contact"  routerLinkActive="active-link">Contact</a>
       </li>
 
     </ul>

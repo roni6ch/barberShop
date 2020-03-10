@@ -11,9 +11,8 @@ const routes: Routes = [
   { path: '',    redirectTo: 'app-homepage', pathMatch: 'full'},
   { path: 'app-login', component: LoginComponent },
   { path: 'app-homepage',    component: HomepageComponent , canActivate: [AuthGuard]},
-  { path: 'app-gallery',    component: GalleryComponent , canActivate: [AuthGuard]},
-  { path: 'app-calendar',    component: CalendarComponent , canActivate: [AuthGuard]},
-  { path: '**',    redirectTo: 'app-login'},
+  { path: 'app-gallery',    component: HomepageComponent , canActivate: [AuthGuard]},
+ { path: '**',    redirectTo: 'app-login'},
 ];
 
 @NgModule({

@@ -20,18 +20,20 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { CalendarComponent } from './components/calendar/calendar.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    GoogleSignInComponent,
     LoginComponent,
     HomepageComponent,
+    GoogleSignInComponent,
     NavComponent,
     GalleryComponent,
-    CalendarComponent
+    CalendarComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

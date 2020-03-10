@@ -12,7 +12,6 @@ export class AuthGuard implements CanActivate {
   async canActivate() {
     const p =  this._auth.isLoggedIn().pipe(first()).toPromise();
     const allowed = await p;
-    console.log('auth : ' + allowed);
     if (allowed) {
       return true;
     } else {

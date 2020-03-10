@@ -11,6 +11,8 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   spinner$: Observable<boolean>;
+  loggedIn$: Observable<boolean>;
   constructor(private _auth: AuthService) {}
-  ngOnInit() { this.spinner$ = this._auth.getSpinner();  }
+  ngOnInit() { this.spinner$ = this._auth.getSpinner(); this.loggedIn$ = this._auth.isLoggedIn();  }
+ 
 }
