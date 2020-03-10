@@ -4,9 +4,7 @@ import { AuthService } from "../../services/auth.service";
 import { ViewportScroller } from "@angular/common";
 
 window.onscroll = function (e) {  
-  // called when the window is scrolled.  
   let element = document.querySelector('.navWrapper');
-    console.log(e);
     if (window.pageYOffset > element.clientHeight) {
       element.classList.add('navbar-inverse');
     } else {

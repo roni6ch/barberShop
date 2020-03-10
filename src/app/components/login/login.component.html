@@ -1,5 +1,33 @@
 <div class="login"  [hidden]="(spinner$ | async)">
-  <google-signin [clientId]="myClientId" width="240" theme="dark" scope="email profile" longTitle="true"
-    (googleSignInSuccess)="onGoogleSignInSuccess($event)" (googleSignInFailure)="onFailure($event)">
-  </google-signin>
+<div class="wrapper slide-in-blurred-bottom">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <h2 [ngClass]="[signin ? 'active' : 'inactive underlineHover']" (click)="signin = true"> Sign In </h2>
+    <h2 [ngClass]="[!signin ? 'active' : 'inactive underlineHover']"  (click)="signin = false">Sign Up </h2>
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <mdb-icon fas icon="user-lock"></mdb-icon>
+     </div>
+
+    <!-- Login Form -->
+    <form>
+      <input type="text" id="email" [(ngModel)]="loginUser.username"  name="username" placeholder="login" />
+      <input type="text" id="password" [(ngModel)]="loginUser.password"  name="password" placeholder="password" />
+      <input type="submit" [value]="signin ? 'Log In' : 'Sign Up'" class="loginBT" (click)="authenticate()" />
+
+      <p>--OR--</p>
+      <div >
+      <google-signin [clientId]="myClientId" width="240" theme="dark" class="googleBT " scope="email profile" longTitle="true"
+        (googleSignInSuccess)="onGoogleSignInSuccess($event)" (googleSignInFailure)="onFailure($event)">
+        </google-signin></div> 
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+
+  </div>
+</div>
 </div>

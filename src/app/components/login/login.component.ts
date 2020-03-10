@@ -16,6 +16,11 @@ export class LoginComponent implements OnInit {
   myClientId =
     "165534313499-qc1cfp3uckkb5p7qimrf3fcfr1pos9pj.apps.googleusercontent.com";
   spinner$: Observable<boolean>;
+
+  loginUser = {};
+  signin = true;
+
+  
   constructor(
     private _auth: AuthService,
     private _router: Router,
@@ -27,6 +32,8 @@ export class LoginComponent implements OnInit {
     if (localStorage.getItem("token") === null) {
       this._auth.spinner$.next(false);
     }
+  }
+  authenticate() {
   }
   async onGoogleSignInSuccess(e: GoogleSignInSuccess) {
     const id = e.googleUser.getAuthResponse().id_token;

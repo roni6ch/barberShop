@@ -12,6 +12,8 @@ const routes: Routes = [
   { path: 'app-login', component: LoginComponent },
   { path: 'app-homepage',    component: HomepageComponent , canActivate: [AuthGuard]},
   { path: 'app-gallery',    component: HomepageComponent , canActivate: [AuthGuard]},
+  { path: 'app-calendar',    component: HomepageComponent , canActivate: [AuthGuard]},
+  { path: 'app-contact',    component: HomepageComponent , canActivate: [AuthGuard]},
  { path: '**',    redirectTo: 'app-login'},
 ];
 
