@@ -6,10 +6,39 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding-top: 75px;
 }
 
 .calendarWrapper{
     height:500px;
     background: #cccccc75;
+    padding: 1%;
+}
+
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-form-field {
+  margin-top: 16px;
+}
+.mat-stepper-horizontal, .mat-stepper-vertical{
+  background-color:transparent;
+}
+.genders{
+  display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 5px;
+    text-align: center;
+}
+.genders img {
+  height: 150px;
+  cursor: pointer;
+  filter: grayscale(70%);
+  transition: filter 500ms linear;
+
+}
+.genders img:hover , .genders img.active {
+  height: 150px;
+  filter: grayscale(0%);
 }

@@ -67,7 +67,7 @@ body {
 	line-height: 1;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  
+
   background: url("./assets/images/barber.jpg") no-repeat center center fixed;
   background-size: cover;
 }
@@ -409,7 +409,7 @@ textarea {
 #cdk-overlay-0{
     top: 310px !important;
   }
-  
+
 #cdk-step-content-0-2{
 
     height: 350px;
@@ -529,7 +529,7 @@ $dark: rgba(0, 0, 0, 0.8);
   }
 }
 .mat-stepper-vertical{
-    
+
     background-color: #ffffff75;
 }
 .no-freeze-spinner{
@@ -564,8 +564,8 @@ $dark: rgba(0, 0, 0, 0.8);
 #google-signin2 > .abcRioButtonBlue{
         margin: 0 auto;
       }
-      
-      
+
+
       .slide-in-blurred-top {
               -webkit-animation: slide-in-blurred-top 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
                       animation: slide-in-blurred-top 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
@@ -576,7 +576,7 @@ $dark: rgba(0, 0, 0, 0.8);
        * See http://animista.net/license for more info.
        * w: http://animista.net, t: @cssanimista
        * ---------------------------------------------- */
-      
+
       /**
        * ----------------------------------------
        * animation slide-in-blurred-top
@@ -622,5 +622,8 @@ $dark: rgba(0, 0, 0, 0.8);
           opacity: 1;
         }
       }
-      
-      
+
+
+.mat-form-field-infix{
+  width:auto !important;
+}

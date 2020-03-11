@@ -1,3 +1,46 @@
 <div class="calendarWrapper slide-in-blurred-top" id="calendar">
-  calendar
+  <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+  </button>
+  <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <!-- step 1 -->
+        <ng-template matStepLabel>What's your Gender?</ng-template>
+        <mat-form-field >
+          <div class="genders">
+             <img src="./../../../assets/images/man.png" (click)="setGender('male')" [className]="client.type === 'male' ? 'active' : ''" />
+            <img src="./../../../assets/images/woman.png" (click)="setGender('female')" [className]="client.type === 'female' ? 'active' : ''"  /></div>
+          <input matInput [hidden]="true" />
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Fill out your address</ng-template>
+        <!-- step 2 -->
+        <mat-form-field>
+          <mat-label>Hair Cut Style?</mat-label>
+
+          <input matInput [hidden]="true">
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+
 </div>

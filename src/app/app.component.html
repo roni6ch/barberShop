@@ -1,9 +1,9 @@
 <div class="wrapper">
     <app-nav></app-nav>
-    <div class="col-12 routerWrapper">
+    <div class="routerWrapper">
       <router-outlet></router-outlet>
     </div>
-    
+
   <app-footer></app-footer>
   <ul class="spinner" [hidden]="!(spinner$ | async)">
     <li></li>
@@ -13,6 +13,6 @@
     <li></li>
   </ul>
 
-  
+
 
 </div>

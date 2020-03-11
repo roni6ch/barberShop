@@ -1,5 +1,5 @@
 <div class="galleryWrapper  slide-in-blurred-top hover01" id="gallery">
-  <div *ngFor="let image of _album; let i = index">
+  <div *ngFor="let image of album; let i = index">
     <figure><img [src]="image.thumb" (click)="open(i)" /></figure>
   </div>
 </div>

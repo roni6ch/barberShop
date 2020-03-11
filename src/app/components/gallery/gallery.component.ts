@@ -7,7 +7,7 @@ import { Lightbox } from 'ngx-lightbox';
   styleUrls: ['./gallery.component.scss']
 })
 export class GalleryComponent implements OnInit {
-  private _album = [];
+  public album = [];
   constructor(private _lightbox: Lightbox) {}
   ngOnInit(): void {
     for (let i = 1; i <= 20; i++) {
@@ -18,15 +18,15 @@ export class GalleryComponent implements OnInit {
          caption: caption,
          thumb: src
       };
- 
-      this._album.push(album);
+
+      this.album.push(album);
     }
   }
     open(index: number): void {
       // open lightbox
-      this._lightbox.open(this._album, index , {centerVertically : true,wrapAround:true});
+      this._lightbox.open(this.album, index , {centerVertically : true,wrapAround:true});
     }
-   
+
     close(): void {
       // close lightbox programmatically
       this._lightbox.close();
