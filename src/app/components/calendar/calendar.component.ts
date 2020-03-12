@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Client }    from '../../client';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-calendar',
@@ -7,25 +8,41 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./calendar.component.scss']
 })
 export class CalendarComponent implements OnInit {
-  isLinear = false;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  client = {
-    type:''
+  client = new Client(null,'',null,'','');
+  submitted = false;
+  calendar = [ ];
+
+  getDaysCalendar() {
+
+    var currentDate = moment();
+    var weekStart = currentDate.clone().startOf('week');
+    var weekEnd = currentDate.clone().endOf('week');
+    for (let i = 0; i <= 6; i++) {
+      let current = moment(weekStart).add(i, 'days');
+      let month = current.format("MMM");
+      let day = current.format("dd");
+      let numDay = current.format("D");
+        this.calendar.push({
+          day,
+          month,
+          numDay,
+          available:(current.format("dddd").indexOf('Friday') > -1 || current.format("dddd").indexOf('Saturday') > -1) ? false : true,
+        });
+    };
+    console.table(this.calendar);
+}
+  constructor() {}
+  ngOnInit() {
+    let now = moment().format('LLLL');
+    //moment.weekdaysShort();
+    this.getDaysCalendar();
   }
 
-  favoriteSeason: string;
-  seasons: string[] = ['Winter', 'Spring', 'Summer', 'Autumn'];
-  constructor(private _formBuilder: FormBuilder) {}
-  ngOnInit() {
-    this.firstFormGroup = this._formBuilder.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this._formBuilder.group({
-      secondCtrl: ['', Validators.required]
-    });
-  }
+  onSubmit() { this.submitted = true; }
   setGender(type){
     this.client.type = type;
+  }
+  setName(name){
+    this.client.name = name;
   }
 }

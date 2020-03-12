@@ -20,25 +20,271 @@
 
 .mat-form-field {
   margin-top: 16px;
+  display:block;
 }
 .mat-stepper-horizontal, .mat-stepper-vertical{
   background-color:transparent;
 }
-.genders{
-  display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    grid-gap: 5px;
-    text-align: center;
+.genders{    display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
 }
 .genders img {
-  height: 150px;
+  height: 100px;
   cursor: pointer;
   filter: grayscale(70%);
   transition: filter 500ms linear;
 
 }
 .genders img:hover , .genders img.active {
-  height: 150px;
   filter: grayscale(0%);
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+}
+.cs-skin-underline>span::after {
+  content: '+';
+}
+.get_form_inner {
+  float: right;
+  width: 100%;
+  margin-top: 20px;
+}
+.group {
+  position: relative;
+  margin-bottom: 20px;
+}
+.group input {
+  font-size: 18px;
+  padding: 10px 7px 5px 2px;
+  display: block;
+  width: 100%;
+  background: transparent;
+  text-align: left;
+  border: none;
+  border-bottom: 1px solid #757575;
+}
+body {
+  background-color: #000;
+}
+.group input:focus {
+  outline: none;
+}
+#facebookIcon{width: 20px;
+  float: right;
+  font-size: 20px;
+  margin: 10px 0px;}
+/* LABEL ======================================= */
+
+.group label {
+  color: #fff;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.web {
+  display: block !important;
+}
+.mobile {
+  display: none !important;
+}
+/* active state */
+
+.group input:focus ~ label,
+input:valid ~ label {
+  top: -5px;
+  font-size: 14px;
+  color: #3d4554;
+}
+.cs-skin-underline .cs-options li span:hover,
+.cs-skin-underline .cs-options li.cs-focus span,
+.cs-skin-underline li.cs-selected span {
+  color: #3d4554;
+  background: rgba(204, 204, 204, 0.28);
+}
+.mat-form-field-appearance-legacy .mat-form-field-underline , .mat-form-field.mat-focused .mat-form-field-label{
+  background-color: #3d4554;
+}
+/* active state */
+.mat-select-value{color:#fff;}
+.group input:focus ~ label,
+input:valid ~ label {
+    top: -5px;
+    font-size: 14px;
+    color: #3d4554;
+}
+.cs-skin-underline .cs-options li span:hover,
+.cs-skin-underline .cs-options li.cs-focus span,
+.cs-skin-underline li.cs-selected span {
+    color: #3d4554;
+    background: rgba(204, 204, 204, 0.28);
+}
+#page-top .navbar-default {
+    background-color: rgba(154, 154, 154, 0.56);
+}
+#page-top .navbar-default.affix {
+    background-color: rgba(255, 255, 255, 0.79);
+}
+/* BOTTOM BARS ================================= */
+
+.group .bar {
+    position: relative;
+    display: block;
+}
+.container-fluid {
+    padding: 0px;
+}
+.group .bar:before,
+.bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    color: #3d4554;
+    background: #3d4554;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+.mfp-counter {
+    direction: ltr;
+}
+.group .bar:before {
+    left: 50%;
+}
+.group .bar:after {
+    right: 50%;
+}
+/* active state */
+
+.group input:focus ~ .bar:before,
+input:focus ~ .bar:after {
+    width: 50%;
+}
+/* HIGHLIGHTER ================================== */
+
+.group .highlight {
+    position: absolute;
+    height: 60%;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+/* active state */
+
+.group input:focus ~ .highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
+}
+/* ANIMATIONS ================ */
+
+@-webkit-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+@-moz-keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+@keyframes inputHighlighter {
+    from {
+        background: #5264AE;
+    }
+    to {
+        width: 0;
+        background: transparent;
+    }
+}
+.calendarWrapper{
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr 5fr;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.mat-form-field-infix{
+
+  direction: rtl;
+  text-align: right;
+}
+.mat-select-value , .ng-star-inserted{
+  color:#3d4554;
+}
+.div1{
+  grid-area: 1 / 1 / 2 / 6;}
+  .div1 h2{
+  font-family: "Patua One", cursive;
+    font-size: 2em;
+    line-height: 1em;
+    color: #fff;
+    text-align: center;
+}
+.div2{
+  grid-area: 2 / 1 / 3 / 2;
+  padding: 0px 10px;
+}
+.div3{
+  height: 100%;
+  grid-area: 2 / 2 / 3 / 3;
+}
+.calendarDays{
+  background: #cccccc75;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 10px;
+  width: 500px;
+  grid-row-gap: 10px;
+  padding: 10px;
+  margin: 0 auto;
+  align-items: center;
+}
+.monthName{
+  display:block
+}
+.dayWrap{
+  padding:5px;
+}
+.day{
+  display: block;
+  margin-bottom: 10px;
+  color:#3d4554;
+  border-bottom: 1px solid #000;
+  padding-bottom: 5px;
+}
+.monthName{
+  font-size: 12px;
+  display:block;
+  margin-bottom: 10px;
+}
+.numDay{
+  color:#3d4554;
+  font-size: 18px;
+}
+.notAvailable{
+  color:#ccc;
 }

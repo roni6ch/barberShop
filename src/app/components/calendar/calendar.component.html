@@ -1,46 +1,61 @@
-<div class="calendarWrapper slide-in-blurred-top" id="calendar">
-  <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
-    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
-  </button>
-  <mat-horizontal-stepper [linear]="isLinear" #stepper>
-    <mat-step [stepControl]="firstFormGroup">
-      <form [formGroup]="firstFormGroup">
-        <!-- step 1 -->
-        <ng-template matStepLabel>What's your Gender?</ng-template>
-        <mat-form-field >
-          <div class="genders">
-             <img src="./../../../assets/images/man.png" (click)="setGender('male')" [className]="client.type === 'male' ? 'active' : ''" />
-            <img src="./../../../assets/images/woman.png" (click)="setGender('female')" [className]="client.type === 'female' ? 'active' : ''"  /></div>
-          <input matInput [hidden]="true" />
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>
-    <mat-step [stepControl]="secondFormGroup">
-      <form [formGroup]="secondFormGroup">
-        <ng-template matStepLabel>Fill out your address</ng-template>
-        <!-- step 2 -->
-        <mat-form-field>
-          <mat-label>Hair Cut Style?</mat-label>
+<form #calendarForm="ngForm">
+  <week-calendar start-day="1" locale="es-MX" disable-weekends="true" enable-dates=''></week-calendar>
 
-          <input matInput [hidden]="true">
-        </mat-form-field>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>
-    <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
-      <p>You are now done.</p>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+  <div class="calendarWrapper slide-in-blurred-top" id="calendar">
+    <div class="div1">
+      <h2>Make an Appointment!</h2>
+    </div>
+    <div class="div2">
+      <div class="genders">
+        <img src="./../../../assets/images/man.png" (click)="setGender('male')"
+          [className]="client.type === 'male' ? 'active' : ''" />
+        <img src="./../../../assets/images/woman.png" (click)="setGender('female')"
+          [className]="client.type === 'female' ? 'active' : ''" />
       </div>
-    </mat-step>
-  </mat-horizontal-stepper>
+      <div class="get_form_inner">
+        <div class="group">
+          <input type="text" class="form-control" [(ngModel)]="client.name" name="name" name="FirstName"
+            required="required" id="name" #name (input)="setName(name.value)"> <span class="highlight"></span> <span
+            class="bar"></span><label>Full Name *</label>
+        </div>
 
-</div>
+        <div class="group">
+          <input type="number" name="Phone" [(ngModel)]="client.phone" name="phone" required="required" id="phone"
+            maxlength="10"> <span class="highlight"></span>
+          <span class="bar"></span><label>Phone *</label>
+        </div>
+
+        <div>
+          <mat-form-field>
+            <mat-label>Haircut type</mat-label>
+            <mat-select required="required" [(ngModel)]="client.type" name="type">
+              <mat-option value="short">Short</mat-option>
+              <mat-option value="long">Long</mat-option>
+              <mat-option value="color">Color</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="group">
+          <input type="text" name="info" [(ngModel)]="client.other" name="other" required="required" id="info">
+          <span class="highlight"></span> <span class="bar"></span><label>Other</label>
+        </div>
+
+
+      </div>
+    </div>
+
+    <div class="div3 calendar p-1">
+      <img src="https://github.com/remigioamc/week-calendar/blob/master/Screenshot%20from%202019-05-28%2011-52-21.png?raw=true">
+      <div class="calendarDays">
+        <div *ngFor="let c of calendar">
+          <div [ngClass]="['day',!c.available ? 'notAvailable' : '']" >{{c.day}}</div>
+          <span  [ngClass]="['monthName',!c.available ? 'notAvailable' : '']">{{c.month}}</span>
+          <span [ngClass]="['numDay',!c.available ? 'notAvailable' : '']">{{c.numDay}}</span>
+        </div>
+      </div>
+      <!-- https://npm.runkit.com/week-calendar?t=1584012544369 -->
+
+    </div>
+  </div>
+</form>
